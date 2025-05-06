@@ -1,0 +1,56 @@
+/* Estilos específicos para la página de inventario */
+
+.search-container {
+    display: flex;
+    gap: 10px;
+}
+
+.search-container input {
+    flex: 1;
+}
+
+.filter-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#sortAscBtn, #sortDescBtn {
+    width: 40px;
+    height: 40px;
+}
+
+#addProductBtn {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.edit-btn, .delete-btn {
+    min-width: 70px;
+}
+
+/* Mejoras para la tabla de productos */
+#productTable {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+#productTable thead th {
+    position: sticky;
+    top: 0;
+}
+
+#productTableBody tr:nth-child(even) {
+    background-color: rgba(93, 74, 138, 0.05);
+}
+
+/* Efecto hover para filas de la tabla */
+#productTableBody tr {
+    transition: transform 0.2s ease;
+}
+
+#productTableBody tr:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1;
+    position: relative;
+}

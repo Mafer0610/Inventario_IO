@@ -1,0 +1,83 @@
+/* Estilos específicos para la página de reportes */
+
+.report-controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.report-controls button {
+    padding: 12px 20px;
+    font-weight: bold;
+    background-color: var(--info-color);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.report-controls button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.report-results {
+    background-color: white;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-left: 3px solid var(--info-color);
+    min-height: 200px;
+    animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.report-results h3 {
+    color: var(--info-color);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.report-results table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.report-results table th {
+    background-color: var(--info-color);
+    color: white;
+    padding: 10px 15px;
+    text-align: left;
+}
+
+.report-results table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.report-results table tr:nth-child(even) {
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+.report-results p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.report-results strong {
+    color: var(--primary-color);
+}

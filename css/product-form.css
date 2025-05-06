@@ -1,0 +1,72 @@
+/* Estilos específicos para el formulario de productos */
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    border-left: 3px solid var(--success-color);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#formTitle {
+    text-align: center;
+    color: var(--success-color);
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.form-group label {
+    font-size: 16px;
+    color: var(--primary-color);
+}
+
+.form-group input, .form-group select {
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #ddd;
+}
+
+.form-group input:focus, .form-group select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(93, 74, 138, 0.2);
+    outline: none;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.form-buttons button, .form-buttons a {
+    min-width: 120px;
+    padding: 12px 20px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.form-buttons .add-btn {
+    background-color: var(--success-color);
+}
+
+.form-buttons .add-btn:hover {
+    background-color: #219653;
+}
+
+.form-buttons .cancel-btn {
+    background-color: var(--danger-color);
+}
+
+.form-buttons .cancel-btn:hover {
+    background-color: #c0392b;
+}

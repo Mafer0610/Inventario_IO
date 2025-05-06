@@ -1,0 +1,89 @@
+/* Estilos específicos para la página de ventas */
+
+.sale-container {
+    border-left: 3px solid var(--secondary-color);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.sale-content {
+    display: flex;
+    gap: 20px;
+}
+
+.sale-form {
+    flex: 1;
+    background-color: rgba(243, 156, 18, 0.05);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.sale-cart {
+    flex: 2;
+}
+
+#saleForm .form-group {
+    margin-bottom: 20px;
+}
+
+#saleForm label {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+#addToCartBtn {
+    background-color: var(--secondary-color);
+    width: 100%;
+    padding: 12px;
+    font-weight: bold;
+}
+
+#addToCartBtn:hover {
+    background-color: #e67e22;
+}
+
+#cartTable {
+    width: 100%;
+    margin-top: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+#cartTable thead {
+    background-color: var(--secondary-color);
+}
+
+#cartTable tfoot {
+    font-weight: bold;
+    background-color: rgba(243, 156, 18, 0.1);
+}
+
+#cartTable tfoot #cartTotal {
+    font-size: 18px;
+    color: var(--secondary-color);
+}
+
+.sale-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#completeSaleBtn {
+    background-color: var(--success-color);
+    font-weight: bold;
+    padding: 12px 25px;
+    font-size: 16px;
+}
+
+#completeSaleBtn:hover {
+    background-color: #219653;
+}
