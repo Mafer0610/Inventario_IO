@@ -1,5 +1,3 @@
-/* Estilos específicos para la página de inventario */
-
 .search-container {
     display: flex;
     gap: 10px;
@@ -29,7 +27,6 @@
     min-width: 70px;
 }
 
-/* Mejoras para la tabla de productos */
 #productTable {
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
