@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Punto de Venta</h1>
+            <nav>
+                <a href="index.html" class="nav-btn">Inventario</a>
+                <a href="reports.html" class="reports-btn">Reportes</a>
+            </nav>
+        </header>
+        
+        <div class="sale-container">
+            <div class="sale-content">
+                <div class="sale-form">
+                    <form id="saleForm">
+                        <div class="form-group">
+                            <label for="saleProductId">ID/Nombre:</label>
+                            <input type="text" id="saleProductId" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="saleQuantity">Cantidad:</label>
+                            <input type="number" id="saleQuantity" min="1" required>
+                        </div>
+                        <button type="button" id="addToCartBtn" class="add-btn">Agregar</button>
+                    </form>
+                </div>
+                <div class="sale-cart">
+                    <h3>Carrito</h3>
+                    <table id="cartTable">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th>Subtotal</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cartTableBody"></tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3">Total:</td>
+                                <td id="cartTotal">$0.00</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="sale-actions">
+                        <button id="completeSaleBtn" class="add-btn">Finalizar Venta</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/sales-main.js"></script>
+</body>
+</html>
