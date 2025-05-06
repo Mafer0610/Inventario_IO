@@ -1,9 +1,11 @@
 import { database } from './firebase-config.js';
 
-let products = [];
+// Variable para almacenar productos
+export let products = [];
 let nextId = 1;
 let editMode = false;
 
+// Cargar productos desde Firebase
 export function loadProducts() {
     database.ref('products').once('value', (snapshot) => {
         products = [];
@@ -17,6 +19,7 @@ export function loadProducts() {
     });
 }
 
+// Guardar productos en Firebase
 export function saveProducts() {
     const updates = {};
     products.forEach(product => {
@@ -27,6 +30,7 @@ export function saveProducts() {
     database.ref().update(updates);
 }
 
+// Renderizar tabla de productos
 export function renderProductTable(productsToShow = products) {
     const productTableBody = document.getElementById('productTableBody');
     productTableBody.innerHTML = '';
@@ -53,36 +57,74 @@ export function renderProductTable(productsToShow = products) {
     });
 }
 
+// Mostrar modal de producto
 export function showProductModal() {
+    console.log("Mostrando modal...");
     const modal = document.getElementById('productModal');
     modal.style.display = 'block';
     document.getElementById('productForm').reset();
     document.getElementById('productId').value = '';
     editMode = false;
-    document.getElementById('saveBtn').textContent = 'Guardar Producto';
     
-    // Forzar el enfoque y asegurar la visualización
+    // Añadir la clase show para la animación
     setTimeout(() => {
-        document.getElementById('productName').focus();
-        modal.style.opacity = '1';
-        modal.style.transform = 'translateY(0)';
+        modal.classList.add('show');
     }, 10);
 }
 
+// Ocultar modal de producto
 export function hideProductModal() {
-    document.getElementById('productModal').style.display = 'none';
+    console.log("Ocultando modal...");
+    const modal = document.getElementById('productModal');
+    modal.classList.remove('show');
+    
+    // Esperar a que termine la animación antes de ocultar completamente
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 300);
 }
 
+// Configurar listeners para el modal
 export function setupModalListeners() {
-    document.getElementById('showFormBtn').addEventListener('click', showProductModal);
-    document.querySelector('.modal .close-btn').addEventListener('click', hideProductModal);
+    console.log("Configurando listeners del modal...");
+    
+    // Botón para mostrar el formulario
+    const showFormBtn = document.getElementById('showFormBtn');
+    if (showFormBtn) {
+        showFormBtn.addEventListener('click', function() {
+            console.log("Botón 'Agregar Producto' clickeado");
+            showProductModal();
+        });
+    } else {
+        console.error("No se encontró el botón 'showFormBtn'");
+    }
+    
+    // Botón para cerrar el formulario
+    const closeBtn = document.querySelector('.close-btn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', hideProductModal);
+    } else {
+        console.error("No se encontró el botón de cierre '.close-btn'");
+    }
+    
+    // Botón para cancelar
+    const cancelBtn = document.getElementById('cancelBtn');
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', hideProductModal);
+    } else {
+        console.error("No se encontró el botón 'cancelBtn'");
+    }
+    
+    // Cerrar al hacer clic fuera del modal
     window.addEventListener('click', (e) => {
-        if (e.target === document.getElementById('productModal')) {
+        const modal = document.getElementById('productModal');
+        if (e.target === modal) {
             hideProductModal();
         }
     });
 }
 
+// Guardar producto
 export function saveProduct(e) {
     e.preventDefault();
     const product = {
@@ -109,6 +151,7 @@ export function saveProduct(e) {
     hideProductModal();
 }
 
+// Editar producto
 export function editProduct(id) {
     const product = products.find(p => p.id === id);
     if (!product) return;
@@ -119,11 +162,11 @@ export function editProduct(id) {
     document.getElementById('productStock').value = product.stock;
     document.getElementById('productPrice').value = product.price;
 
-    document.getElementById('saveBtn').textContent = 'Actualizar Producto';
     editMode = true;
     showProductModal();
 }
 
+// Eliminar producto
 export function deleteProduct(id) {
     if (confirm('¿Estás seguro de que deseas eliminar este producto?')) {
         products = products.filter(product => product.id !== id);

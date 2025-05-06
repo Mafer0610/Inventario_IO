@@ -1,218 +1,6 @@
-:root {
-    --primary-color: #5d4a8a;
-    --secondary-color: #f39c12;
-    --success-color: #27ae60;
-    --info-color: #3498db;
-    --danger-color: #e74c3c;
-    --light-color: #f8f9fa;
-    --dark-color: #343a40;
-}
+/* Añadir estas reglas al final del archivo styles.css */
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--light-color);
-    color: #333;
-    line-height: 1.6;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-    background-color: #f8f9fa;
-    color: #333;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-header {
-    background-color: #5d4a8a;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-}
-
-h1, h2, h3 {
-    margin-bottom: 15px;
-    color: #5d4a8a;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 100;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-}
-
-.modal-content {
-    background-color: white;
-    margin: 10% auto;
-    padding: 20px;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 5px;
-    position: relative;
-}
-
-.close-btn {
-    position: absolute;
-    right: 20px;
-    top: 10px;
-    font-size: 28px;
-    cursor: pointer;
-}
-
-button, .nav-btn {
-    background-color: #5d4a8a;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
-
-button:hover, .nav-btn:hover {
-    background-color: #4a3b71;
-}
-
-.add-btn {
-    background-color: #27ae60;
-}
-
-.add-btn:hover {
-    background-color: #219653;
-}
-
-.sales-btn, .nav-btn.sales-btn {
-    background-color: #f39c12;
-}
-
-.sales-btn:hover, .nav-btn.sales-btn:hover {
-    background-color: #e67e22;
-}
-
-.reports-btn, .nav-btn.reports-btn {
-    background-color: #3498db;
-}
-
-.reports-btn:hover, .nav-btn.reports-btn:hover {
-    background-color: #2980b9;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-}
-
-thead {
-    background-color: #5d4a8a;
-    color: white;
-}
-
-tbody tr:hover {
-    background-color: #f5f5f5;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input, select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-.form-buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.search-filter-container {
-    display: flex;
-    justify-content: space-between;
-    background-color: white;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    border-left: 3px solid #27ae60;
-}
-
-.table-container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-    border-left: 3px solid #5d4a8a;
-}
-
-.sale-container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    border-left: 3px solid #f39c12;
-}
-
-.sale-content {
-    display: flex;
-    gap: 20px;
-}
-
-.sale-form {
-    flex: 1;
-}
-
-.sale-cart {
-    flex: 2;
-}
-
-@media (max-width: 768px) {
-    .search-filter-container, .sale-content {
-        flex-direction: column;
-    }
-    
-    .form-buttons {
-        flex-direction: column;
-    }
-    
-    button, .nav-btn {
-        width: 100%;
-        margin-top: 5px;
-    }
-}
+/* Asegurar que el modal tenga la transición adecuada */
 .modal {
     display: none;
     position: fixed;
@@ -222,9 +10,12 @@ input, select {
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.7);
-    transition: all 0.3s ease;
     opacity: 0;
-    overflow-y: auto;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    opacity: 1;
 }
 
 .modal-content {
@@ -236,13 +27,77 @@ input, select {
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     transform: translateY(-20px);
-    transition: all 0.3s ease;
-}
-
-.modal.show {
-    opacity: 1;
+    transition: transform 0.3s ease;
 }
 
 .modal.show .modal-content {
     transform: translateY(0);
+}
+
+/* Mejorar el botón de cerrar */
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #5d4a8a;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #e74c3c;
+}
+
+/* Mejorar el diseño de los botones en el formulario */
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.form-buttons button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+/* Hacer que los campos del formulario sean más atractivos */
+.form-group input:focus, 
+.form-group select:focus {
+    border-color: #5d4a8a;
+    box-shadow: 0 0 0 2px rgba(93, 74, 138, 0.2);
+    outline: none;
+}
+
+/* Asegurar que la tabla tenga un buen aspecto */
+table {
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Hacer que los botones de acción sean más atractivos */
+.action-btn {
+    padding: 6px 12px;
+    margin: 0 3px;
+    font-size: 14px;
+}
+
+.edit-btn {
+    background-color: #3498db;
+}
+
+.edit-btn:hover {
+    background-color: #2980b9;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
 }
